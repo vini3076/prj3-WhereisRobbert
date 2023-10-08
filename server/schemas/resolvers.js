@@ -1,5 +1,5 @@
 const { User } = require("../models");
-const { signToken, AuthenticationError } = require("../utils/auth");
+const { signToken, AuthenticationError } = require("../utils/city");
 
 const resolvers = {
   Query: {
@@ -39,13 +39,13 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // prj3: we need to change saveBook and bookData
-    saveBook: async (parent, { bookData }, context) => {
+    // prj3: we need to change saveBook and bookData; aut = city
+    saveLocation: async (parent, { locationData }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-               //   we need to change savedBooks to saveLocation
-          { $push: { savedBooks: bookData } },
+               //   changed: savedBooks to saveLocation
+          { $push: { savedLocation: locationData } },
           { new: true }
         );
 
@@ -54,12 +54,12 @@ const resolvers = {
 
       throw AuthenticationError;
     },
-    removeBook: async (parent, { bookId }, context) => {
+    removeLocation: async (parent, { locationId }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-        // prj:3 we need to change savedBooks to saveLocation
-          { $pull: { savedBooks: { bookId } } }, 
+        // prj3: changed savedBooks = saveLocation
+          { $pull: { savedLocation: { locationId } } }, 
           { new: true }
         );
 
