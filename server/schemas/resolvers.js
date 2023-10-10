@@ -39,7 +39,7 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    // prj3: we need to change saveBook and bookData; aut = city
+    // prj3: changed saveBook = saveLocation; bookData = locationData; auth = city
     saveLocation: async (parent, { locationData }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
