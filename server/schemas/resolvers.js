@@ -1,5 +1,5 @@
 const { User } = require("../models");
-const { signToken, AuthenticationError } = require("../utils/city");
+// const { signToken, AuthenticationError } = require("../utils/city");
 
 const resolvers = {
   Query: {

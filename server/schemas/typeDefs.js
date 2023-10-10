@@ -4,10 +4,9 @@ const typeDefs = `
     username: String!
     email: String
     locationCount: Int
-    savedLocations: [Book]
+    savedLocations: [Location]
   }
 
-// pj3- switched the following to fit our project: book = location; author = campsite; BookInput = LocationInput; title = city//
 
   type Location {
     locationId: ID!
@@ -18,7 +17,7 @@ const typeDefs = `
     city: String!
   }
 
-  type Location {
+  type Auth {
     token: ID!
     user: User
   }
@@ -38,7 +37,7 @@ const typeDefs = `
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): City
+    addUser(username: String!, email: String!, password: String!): User
     saveLocation(locationData: LocationInput!): User
     removeLocation(locationId: ID!): User
   }
