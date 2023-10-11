@@ -1,5 +1,8 @@
 const { User } = require("../models");
 // const { signToken, AuthenticationError } = require("../utils/city");
+const { signToken } = require("../utils/auth");
+const { AuthenticationError } = require("apollo-server-express");
+
 
 const resolvers = {
   Query: {
@@ -12,13 +15,13 @@ const resolvers = {
         return userData;
       }
 
-      throw AuthenticationError;
+      throw new AuthenticationError("Not logged in");
     },
   },
 
   Mutation: {
-    addUser: async (parent, args) => {
-      const user = await User.create(args);
+    addUser: async (parent, {username, email, password}) => {
+      const user = await User.create({username, email, password});
       const token = signToken(user);
 
       return { token, user };
@@ -70,3 +73,4 @@ const resolvers = {
     },
   },
 };
+module.exports = resolvers;

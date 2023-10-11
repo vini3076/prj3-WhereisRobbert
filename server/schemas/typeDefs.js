@@ -1,3 +1,6 @@
+const { gql } = require('apollo-server-express');
+
+
 const typeDefs = `
   type User {
     _id: ID!
@@ -25,7 +28,7 @@ const typeDefs = `
   input LocationInput {
     campsite: [String]
     description: String!
-    bookId: String!
+    locationId: String!
     image: String
     link: String
     city: String!
@@ -37,7 +40,7 @@ const typeDefs = `
 
   type Mutation {
     login(email: String!, password: String!): Auth
-    addUser(username: String!, email: String!, password: String!): User
+    addUser(username: String!, email: String!, password: String!): Auth
     saveLocation(locationData: LocationInput!): User
     removeLocation(locationId: ID!): User
   }
