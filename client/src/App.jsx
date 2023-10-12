@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from "./components/Navbar";
+import { Outlet } from 'react-router-dom';
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -45,6 +46,7 @@ function App() {
           <Route path="/signup" element={<Signup/>}/> 
         </Routes>
       </Router>
+      <Outlet/>
 
         </ApolloProvider> 
   );
