@@ -25,4 +25,4 @@ const locationSchema = new Schema({
 
 const Location = model('Location', locationSchema);
 
-module.exports = locationSchema;
+module.exports = Location;
