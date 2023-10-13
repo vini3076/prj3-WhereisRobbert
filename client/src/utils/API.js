@@ -1,5 +1,5 @@
 const apiKey = `9CY8ugde1JciGsW08MOcPyV22TgEljJNPV0hBYCl`
-const apiURL = `https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&api_key=${apiKey}`
+const apiURL = `https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`
 
 
 export const getMe = (token) => {
@@ -57,6 +57,7 @@ export const getMe = (token) => {
   export const searchGoogleBooks = (query) => {
     return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
   };
+
 
   export const getCamps = ( )=> {
     return fetch(apiURL)
