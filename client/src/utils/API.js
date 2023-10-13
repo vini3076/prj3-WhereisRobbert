@@ -1,4 +1,5 @@
 const apiKey = `9CY8ugde1JciGsW08MOcPyV22TgEljJNPV0hBYCl`
+const query = 'campgrounds';
 const apiURL = `https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`
 
 
@@ -31,22 +32,22 @@ export const getMe = (token) => {
     });
   };
   
-  // save book data for a logged in user
+  // save campground data for a logged in user
   //need to comeback later
-  export const saveCampgrounds = (bookData, token) => {
+  export const saveCampgrounds = (campgroundData, token) => {
     return fetch('/api/users', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(bookData),
+      body: JSON.stringify(campgroundData),
     });
   };
   
-  // remove saved book data for a logged in user
-  export const deleteBook = (bookId, token) => {
-    return fetch(`/api/users/books/${bookId}`, {
+  // remove saved campground data for a logged in user
+  export const deleteCamp = (campId, token) => {
+    return fetch(`/api/users/books/${campId}`, { // TODO: book/location edit
       method: 'DELETE',
       headers: {
         authorization: `Bearer ${token}`,
@@ -55,8 +56,8 @@ export const getMe = (token) => {
   };
   
 
-  export const searchGoogleBooks = (query) => {
-    return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
+  export const searchCampgrounds = (query) => {
+    return fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`);
   };
 
 

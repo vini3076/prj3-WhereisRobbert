@@ -27,7 +27,7 @@ const SearchCampgrounds = () => {
     return () => saveCampIds(savedCampIds);
   });
 
-  // create method to search for books and set state on form submit
+  // create method to search for campgrounds and set state on form submit
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
