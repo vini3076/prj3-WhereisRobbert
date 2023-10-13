@@ -32,7 +32,8 @@ export const getMe = (token) => {
   };
   
   // save book data for a logged in user
-  export const saveBook = (bookData, token) => {
+  //need to comeback later
+  export const saveCampgrounds = (bookData, token) => {
     return fetch('/api/users', {
       method: 'PUT',
       headers: {
