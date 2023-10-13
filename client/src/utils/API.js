@@ -1,4 +1,7 @@
-// route to get logged in user's info (needs the token)
+const apiKey = `9CY8ugde1JciGsW08MOcPyV22TgEljJNPV0hBYCl`
+const apiURL = `https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&api_key=${apiKey}`
+
+
 export const getMe = (token) => {
     return fetch('/api/users/me', {
       headers: {
@@ -50,8 +53,11 @@ export const getMe = (token) => {
     });
   };
   
-  // make a search to google books api
-  // https://www.googleapis.com/books/v1/volumes?q=harry+potter
+
   export const searchGoogleBooks = (query) => {
     return fetch(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
   };
+
+  export const getCamps = ( )=> {
+    return fetch(apiURL)
+  }

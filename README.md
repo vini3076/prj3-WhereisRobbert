@@ -130,5 +130,4 @@ Finally, you must add your project to the portfolio that you created in Module 2
 - Audrey Laititia Kacoutie Veh
 - Alicia Hermez
   
-  API Key for recreation.gov API:
-  0487e6dd-6f97-4e19-a510-117ddb29f41d
+
