@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const { searchCampgrounds, getCamps } = require('../utils/API');
+//const { searchCampgrounds, getCamps } = require('../utils/API');
 
 const locationSchema = new Schema({
   campId: {
@@ -49,7 +49,7 @@ locationSchema.statics.searchCampgrounds = async (query) => {
   }
 };
 
-// static method to save a campground to the database
+/* // static method to save a campground to the database
 locationSchema.statics.saveCampground = async (name, description) => {
   try {
     const newCamp = new campground({ name, description })
@@ -60,7 +60,7 @@ locationSchema.statics.saveCampground = async (name, description) => {
     throw new Error('Failed to save campground to the database.');
   }
 };
-
+ */
 
 const Location = model('Location', locationSchema);
 
