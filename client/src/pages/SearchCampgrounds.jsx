@@ -21,7 +21,7 @@ const SearchCampgrounds = () => {
   // create state to hold saved bookId values
   const [savedCampIds, setSavedCampIds] = useState(getSavedCampIds());
 
-  // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
+  // set up useEffect hook to save `savedCampIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
     return () => saveCampIds(savedCampIds);
