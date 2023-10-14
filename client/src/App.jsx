@@ -38,15 +38,15 @@ function App() {
    
 
       
-      <Router>
+      
       <Navbar />
-        <Routes>
+      <Outlet/>
+        {/* <Router><Routes>
           <Route path="/" element={<Home/>}/> 
           <Route path="/login" element={<Login/>}/> 
           <Route path="/signup" element={<Signup/>}/> 
-        </Routes>
-      </Router>
-      <Outlet/>
+        </Routes> </Router>*/}
+      
 
         </ApolloProvider> 
   );

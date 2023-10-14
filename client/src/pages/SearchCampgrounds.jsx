@@ -10,7 +10,7 @@ import {
 
 import Auth from '../utils/auth';
 import { saveCampgrounds, getCamps } from '../utils/API';
-// import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
+import { saveCampIds, getSavedCampIds } from '../utils/localStorage';
 
 const SearchCampgrounds = () => {
   // create state for holding returned google api data
