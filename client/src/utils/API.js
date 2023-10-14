@@ -1,6 +1,5 @@
 const apiKey = `9CY8ugde1JciGsW08MOcPyV22TgEljJNPV0hBYCl`
-const query = 'campgrounds';
-const apiURL = `https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`
+//const apiURL = `https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`
 
 
 export const getMe = (token) => {
@@ -54,9 +53,26 @@ export const getMe = (token) => {
       },
     });
   };
-  
 
   export const getCamps = (query) => {
     return fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`);
+  }
+/* 
+  export const getCamps = (query) => {
+    fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`)
+    .then((response)=>{
+        if(!response.ok){
+            console.log("network error");
+        }
+        return(response.json())
+    })
+    .then((data)=>{
+        console.log(data);
+        return data;
+    })
+    .catch((error)=>{
+        console.log(error);
+    })
   };
 
+ */
