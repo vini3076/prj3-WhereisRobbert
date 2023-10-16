@@ -12,6 +12,17 @@ import Auth from '../utils/auth';
 import { saveCampgrounds, getCamps } from '../utils/API';
 import { saveCampIds, getSavedCampIds } from '../utils/localStorage';
 
+function Robbert() {
+  return (
+    <div>
+      <h1>robbert</h1>
+      <img src="/client\src\images\robbert.png" alt="robbert" />
+    </div>
+  );
+}
+
+
+
 const SearchCampgrounds = () => {
   // create state for holding returned google api data
   const [searchedCampgrounds, setSearchedCampgrounds] = useState([]);
@@ -89,9 +100,9 @@ const SearchCampgrounds = () => {
 
   return (
     <>
-      <div className="text-light bg-dark p-5">
+      <div fluid className="text-light bg-primary p-5">
         <Container>
-          <h1>Search for Campgrounds!</h1>
+          <h2>Search for Campgrounds!</h2>
           <Form onSubmit={handleFormSubmit}>
             <Row>
               <Col xs={12} md={8}>
@@ -105,7 +116,7 @@ const SearchCampgrounds = () => {
                 />
               </Col>
               <Col xs={12} md={4}>
-                <Button type='submit' variant='success' size='lg'>
+                <Button type='submit' variant='warning' size='lg'>
                   Submit Search
                 </Button>
               </Col>

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { getCamps } from "../utils/API";
 
 
+
 const Home = () => {
     useEffect(() => {
         getCamps().then (response => response.json())
@@ -10,9 +11,10 @@ const Home = () => {
     return (
         <>
         <h1>
-            Home
+           Home
         </h1>
         </>
     )
 }
+
 export default Home;
