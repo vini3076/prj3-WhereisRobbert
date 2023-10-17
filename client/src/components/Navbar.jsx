@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignupForm";
-import logo from "../images/robbert.png"
+import logo from "../images/robbertlogo.png"
 
 import Auth from "../utils/auth";
 
@@ -23,13 +23,19 @@ const AppNavbar = () => {
           <Navbar.Brand
             as={Link}
             to="/"
-            style={{ fontSize: "60px", fontFamily: "'BlinkMacSystemFont', ariel" }}
+            style={{ fontSize: "60px", fontFamily: "'BlinkMacSystemFont', ariel", alignItems: "center",  display: "flex",
+            justifyContent: "flex-end",}}
+
+            className="ml-auto"
           >
             <img
               alt=""
               src={logo}
               width="250"
               height="250"
+              margin-right="15px="
+              margin-left="10px"
+              margin-top="5px"
               className="d-inline-block align-top"
             />
             Where's Robbert?
@@ -39,9 +45,9 @@ const AppNavbar = () => {
           <Navbar.Collapse id="navbar" className="d-flex flex-row-reverse">
             <Nav className="ml-auto d-flex">
               <Nav.Link as={Link} to="/">
-                Search For Campgrounds
+                <strong>Search For Campgrounds</strong>
               </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
+              {/*if user is logged in show saved books and logout*/}
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to="/saved">
@@ -51,7 +57,7 @@ const AppNavbar = () => {
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>
-                  Login/Sign Up
+                  <strong>Login/Sign Up</strong>
                 </Nav.Link>
               )}
             </Nav>

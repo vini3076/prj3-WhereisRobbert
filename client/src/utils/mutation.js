@@ -9,13 +9,13 @@ mutation Mutation($username: String!, $email: String!, $password: String!) {
         email
         locationCount
         username
-        savedLocations {
-          campsite
-          city
+        savedCampgrounds {
+          URL
+          name
           description
-          image
-          link
-          locationId
+          reservationURL
+          fees
+          images
         }
       }
     }
@@ -32,17 +32,29 @@ mutation Mutation($email: String!, $password: String!) {
         email
         locationCount
         username
-        savedLocations {
-          campsite
-          city
+        savedCampgrounds {
+          URL
+          name
           description
-          image
-          link
-          locationId
+          reservationURL
+          fees
+          images
         }
       }
     }
   }
 
 `
-
+export const ADD_CAMPGROUND =gql`
+mutation Mutation($campgroundData: CampgroundInput!) {
+  addCampGround(campgroundData: $campgroundData) {
+    URL
+    _id
+    description
+    fees
+    images
+    name
+    reservationURL
+  }
+}
+`

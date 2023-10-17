@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
-const bcrypt = require('bcrypt');
-const campGroundSchema = require('./Campground.js');
+import { Schema, model } from 'mongoose';
+import bcrypt from 'bcrypt';
+
 
 const userSchema = new Schema(
   {
@@ -20,7 +20,12 @@ const userSchema = new Schema(
       required: true,
     },
     // set savedBooks to be an array of data that adheres to the bookSchema
-    savedCampgrounds: [campGroundSchema],
+    savedCampgrounds: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Campground'
+      }
+    ],
   },
   // set this to use virtual below
   {
@@ -52,4 +57,18 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 const User = model('User', userSchema);
 
-module.exports = User;
+export default User;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

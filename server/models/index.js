@@ -1,4 +1,4 @@
-const User = require('./User');
-const Campground = require('./Campground');
+import User from'./User.js';
+import Campground from './Campground.js';
 
-module.exports = { User, Campground };
+export { User, Campground };
