@@ -57,12 +57,14 @@ const SearchCampgrounds = () => {
       .then((data) => {
         console.log("Data object: ", data)
         console.log(data.data);
-        const items = data.data; 
+        
+        const items = (data.data)
          /* for(let i in data) { 
             items.push([i,data[i]]); 
          };  */
 
        console.log("items array: ", items);
+          
         const campData = items.map((camp) => ({
           campId: camp.id,
           URL: camp.url,
@@ -70,7 +72,7 @@ const SearchCampgrounds = () => {
           description: camp.description,
           reservationURL: camp.reservationUrl,
           fees: camp.fees[0].cost,
-          images: camp.images[0].url,
+          images: camp.images[0]?.url,
         }));
 
         console.log(campData);
