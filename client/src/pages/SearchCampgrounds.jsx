@@ -47,26 +47,41 @@ const SearchCampgrounds = () => {
     }
 
     try {
-      const response = await getCamps(searchInput);
+      const response = await getCamps(searchInput)
+      .then ((response) =>{
 
-      if (!response.ok) {
-        throw new Error('something went wrong!');
-      }
+        if (!response.ok) {
+          throw new Error('something went wrong!');
+        }
+       else{
+          return response.json()
+        }
+      })
+      .then((data) => {
+        console.log("Data object: ", data)
+        console.log(data.data);
+        const items = data.data; 
+         /* for(let i in data) { 
+            items.push([i,data[i]]); 
+         };  */
+        
+       console.log("items array: ", items);
+        const campData = items.map((camp) => ({
+          campId: camp.id,
+          URL: camp.url,
+          name: camp.name,
+          description: camp.description,
+          reservationURL: camp.reservationUrl,
+          fees: camp.fees[0].cost,
+          images: camp.images[0].url,
+        }));
 
-      const { items } = await response.json();
-
-      const campData = items.map((camp) => ({
-        campId: camp.id,
-        URL: camp.url,
-        name: camp.name,
-        description: camp.description,
-        reservationURL: camp.reservationURL,
-        fees: camp.fees.cost,
-        images: camp.images.url,
-      }));
-
-      setSearchedCampgrounds(campData);
-      setSearchInput('');
+        console.log(campData);
+  
+        setSearchedCampgrounds(campData);
+        setSearchInput('');
+      })
+     
     } catch (err) {
       console.error(err);
     }
@@ -141,10 +156,10 @@ const SearchCampgrounds = () => {
                   ) : null}
                   <Card.Body>
                     <Card.Title>{camp.name}</Card.Title>
-                    <p className='small'>URL: {camp.url}</p>
+                    <p>URL: {camp.URL}</p>
                     <Card.Text>{camp.description}</Card.Text>
-                    <Card.Text>{camp.reservationURL}</Card.Text>
-                    <Card.Text>{camp.fees}</Card.Text>
+                    <Card.Text> <a href={camp.reservationURL}>Reservation</a></Card.Text>
+                    <Card.Text> <b>Fees: </b> {camp.fees}</Card.Text>
                     {Auth.loggedIn() && (
                       <Button
                         disabled={savedCampIds?.some((savedCampId) => savedCampId === camp.campId)}
