@@ -51,7 +51,7 @@ const SearchCampgrounds = () => {
         name: camp.name,
         description: camp.description,
         reservationURL: camp.reservationURL,
-        fees: camp.fees.cost,
+        fees: camp.fees[0].costt,
         images: camp.images[0]?.url,
       }));
 

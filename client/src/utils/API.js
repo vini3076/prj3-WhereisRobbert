@@ -55,7 +55,8 @@ export const getMe = (token) => {
   };
 
   export const getCamps = (query) => {
-    return fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`);
+    console.log(`https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`)
+  return fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`);
   }
 /* 
   export const getCamps = (query) => {
