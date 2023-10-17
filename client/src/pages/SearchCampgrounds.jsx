@@ -11,6 +11,14 @@ import {
 import Auth from '../utils/auth';
 import { saveCampgrounds, getCamps } from '../utils/API';
 import { saveCampIds, getSavedCampIds } from '../utils/localStorage';
+function Robbert() {
+  return (
+    <div>
+      <h1>robbert</h1>
+      <img src="/client\src\images\robbert.png" alt="robbert" />
+    </div>
+  );
+}
 
 const SearchCampgrounds = () => {
   // create state for holding returned google api data
