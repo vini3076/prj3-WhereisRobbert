@@ -95,7 +95,7 @@ const SavedCampgrounds = () => {
                     <Card.Title>{campground.name}</Card.Title>
                     <p className='small'>City: {campground.city}</p>
                     <Card.Text>{campground.description}</Card.Text>
-                    <Button className='btn-block btn-danger' onClick={() => handleDeleteCampground(campId)}>
+                    <Button className='btn-block btn-danger' onClick={() => handleDeleteCampground(campground.campId)}>
                       Delete this Campground!
                     </Button>
                   </Card.Body>

@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const campGroundSchema = require('./Campground.js');
 
 const userSchema = new Schema(
   {
@@ -19,7 +20,7 @@ const userSchema = new Schema(
       required: true,
     },
     // set savedBooks to be an array of data that adheres to the bookSchema
-    // savedLocations: [locationSchema],
+    savedCampgrounds: [campGroundSchema],
   },
   // set this to use virtual below
   {

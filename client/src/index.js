@@ -5,7 +5,7 @@ import "./index.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SearchCampgrounds from "./pages/SearchCampgrounds";
-//import SavedCampgrounds from "./pages/SavedCampgrounds";
+import SavedCampgrounds from "./pages/SavedCampgrounds";
 
 //import reportWebVitals from './reportWebVitals';
 
@@ -24,10 +24,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <SearchCampgrounds />,
-      } , /* {
+      } ,  {
         path: '/saved',
         element: <SavedCampgrounds />
-      } , */
+      } , 
     ],
   },
 ]);
