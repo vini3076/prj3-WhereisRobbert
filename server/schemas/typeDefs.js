@@ -1,23 +1,33 @@
-const { gql } = require('apollo-server-express');
+import { gql } from 'apollo-server-express';
 
 
-const typeDefs = `
+
+const typeDefs = gql`
   type User {
     _id: ID!
     username: String!
     email: String
     locationCount: Int
-    savedLocations: [Location]
+    savedCampgrounds: [Campground]
   }
 
 
-  type Location {
-    locationId: ID!
-    campsite: [String]
+  type Campground {
+    _id: ID!
+    URL: String
+    name: String
     description: String
-    image: String
-    link: String
-    city: String!
+    reservationURL: String
+    fees: Float
+    images: [String]
+  }
+  type CampgroundOutput{
+    URL: String
+    name: String
+    description: String
+    reservationURL: String
+    fees: Float
+    images: String
   }
 
   type Auth {
@@ -25,25 +35,37 @@ const typeDefs = `
     user: User
   }
 
-  input LocationInput {
-    campsite: [String]
-    description: String!
-    locationId: String!
-    image: String
-    link: String
-    city: String!
+  input CampgroundInput {
+    URL: String
+    name: String
+    description: String
+    reservationURL: String
+    fees: Float
+    images: [String]
+    userId: ID!
   }
 
   type Query {
     me: User
+    getCamps(searchString: String!): [CampgroundOutput]
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveLocation(locationData: LocationInput!): User
-    removeLocation(locationId: ID!): User
+    addCampGround(campgroundData: CampgroundInput!): Campground
   }
 `;
 
-module.exports = typeDefs;
+export default typeDefs;
+
+
+
+
+
+
+
+
+
+
+

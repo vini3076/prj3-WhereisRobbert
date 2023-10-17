@@ -1,37 +1,29 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 //const { searchCampgrounds, getCamps } = require('../utils/API');
 
 const campGroundSchema = new Schema({
-  campId: {
-    type: String,
-    required: true,
-  },
   URL: {
     type: String,
-    required: true,
   },
   name: {
     type: String,
-    required: true,
   },
   description: {
     type: String,
-    required: true,
   }, 
   reservationURL: {
     type: String,
-    required: true,
   },
   fees: {
-    cost: {
-      type: Number,
-      required: true,
-    },
+    type: Number
   },
-  images: {
+  images: [{
     type: String,
-    required: true,
-  },
+  }],
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
 // we can add more fields here later if we want
 });
 // static method to search campgrounds using nps API
@@ -64,6 +56,6 @@ locationSchema.statics.saveCampground = async (name, description) => {
 
 //const Campground = model('Campground', campGroundSchema);
 
-module.exports = campGroundSchema; 
+const Campground = model('Campground', campGroundSchema)
 
-
+export default Campground

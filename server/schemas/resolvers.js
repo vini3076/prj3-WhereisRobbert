@@ -1,22 +1,60 @@
-const { User } = require("../models");
+import { User, Campground } from "../models/index.js";
 // const { signToken, AuthenticationError } = require("../utils/city");
-const { signToken } = require("../utils/auth");
-const { AuthenticationError } = require("apollo-server-express");
+import { signToken } from "../utils/auth.js";
+import { AuthenticationError } from "apollo-server-express";
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select(
-          "-__v -password"
-        );
+        const userData = await User.findOne({ _id: context.user._id }).populate('savedCampgrounds');
 
         return userData;
       }
 
       throw new AuthenticationError("Not logged in");
     },
+    getCamps: async(parent, {searchString}) => {
+      console.log('here')
+      const response = await fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${searchString}&api_key=${process.env.API_KEY}`)
+
+
+        if (!response.ok) {
+          throw new Error('something went wrong!');
+        }
+       else{
+          let data = await response.json()
+          console.log("Data object: ", data)
+          console.log(data.data);
+        
+          const items = (data.data)
+         /* for(let i in data) { 
+            items.push([i,data[i]]); 
+         };  */
+
+          console.log("items array: ", items);
+          
+          const campData = items.map((camp) => ({
+            campId: camp.id,
+            URL: camp.url,
+            name: camp.name,
+            description: camp.description,
+            reservationURL: camp.reservationUrl,
+            fees: camp.fees[0].cost,
+            images: camp.images[0]?.url,
+          }));
+
+          return campData
+        }
+
+
+        
+
+
+    }
   },
 
   Mutation: {
@@ -43,34 +81,46 @@ const resolvers = {
       return { token, user };
     },
     // prj3: changed saveBook = saveLocation; bookData = locationData; auth = city
-    saveLocation: async (parent, { locationData }, context) => {
+    addCampGround: async (parent, { campgroundData }, context) => {
       if (context.user) {
+        console.log(campgroundData)
+        const newCampground = await Campground.create({
+          ...campgroundData
+        })
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
                //   changed: savedBooks to saveLocation
-          { $push: { savedLocation: locationData } },
+          { $push: { savedCampgrounds: newCampground._id } },
           { new: true }
         );
 
-        return updatedUser;
+        return newCampground;
       }
 
-      throw AuthenticationError;
+      throw new AuthenticationError('could not create campground');
     },
-    removeLocation: async (parent, { locationId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-        // prj3: changed savedBooks = saveLocation
-          { $pull: { savedLocation: { locationId } } }, 
-          { new: true }
-        );
+    // removeLocation: async (parent, { locationId }, context) => {
+    //   if (context.user) {
+    //     const updatedUser = await User.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //     // prj3: changed savedBooks = saveLocation
+    //       { $pull: { savedLocation: { locationId } } }, 
+    //       { new: true }
+    //     );
 
-        return updatedUser;
-      }
+    //     return updatedUser;
+    //   }
 
-      throw AuthenticationError;
-    },
+    //   throw AuthenticationError;
+    // },
   },
 };
-module.exports = resolvers;
+export default resolvers;
+
+
+
+
+
+
+
+

@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "dependencies": {
     "antd": "^5.9.4",
     "apollo-server-express": "^3.12.1",
