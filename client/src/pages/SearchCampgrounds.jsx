@@ -1,4 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
+import { QUERY_CAMPS } from '../utils/queries';
 import {
   Container,
   Col,
@@ -28,6 +31,8 @@ const SearchCampgrounds = () => {
 
   // create state to hold saved bookId values
   const [savedCampIds, setSavedCampIds] = useState(getSavedCampIds());
+  const [getCampgrounds, { loading, data }] = useLazyQuery(QUERY_CAMPS); // Use useLazyQuery
+
 
   // set up useEffect hook to save `savedCampIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
@@ -36,54 +41,67 @@ const SearchCampgrounds = () => {
   });
 
   // create method to search for campgrounds and set state on form submit
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
 
-    if (!searchInput) {
-      return false;
-    }
+  //   if (!searchInput) {
+  //     return false;
+  //   }
 
-    try {
-      const response = await getCamps(searchInput)
-      .then ((response) =>{
+  //   try {
+  //     const response = await getCamps(searchInput)
+  //     .then ((response) =>{
 
-        if (!response.ok) {
-          throw new Error('something went wrong!');
-        }
-       else{
-          return response.json()
-        }
-      })
-      .then((data) => {
-        console.log("Data object: ", data)
-        console.log(data.data);
+  //       if (!response.ok) {
+  //         throw new Error('something went wrong!');
+  //       }
+  //      else{
+  //         return response.json()
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log("Data object: ", data)
+  //       console.log(data.data);
         
-        const items = (data.data)
-         /* for(let i in data) { 
-            items.push([i,data[i]]); 
-         };  */
+  //       const items = (data.data)
+  //        /* for(let i in data) { 
+  //           items.push([i,data[i]]); 
+  //        };  */
 
-       console.log("items array: ", items);
+  //      console.log("items array: ", items);
           
-        const campData = items.map((camp) => ({
-          campId: camp.id,
-          URL: camp.url,
-          name: camp.name,
-          description: camp.description,
-          reservationURL: camp.reservationUrl,
-          fees: camp.fees[0].cost,
-          images: camp.images[0]?.url,
-        }));
+  //       const campData = items.map((camp) => ({
+  //         campId: camp.id,
+  //         URL: camp.url,
+  //         name: camp.name,
+  //         description: camp.description,
+  //         reservationURL: camp.reservationUrl,
+  //         fees: camp.fees[0].cost,
+  //         images: camp.images[0]?.url,
+  //       }));
 
-        console.log(campData);
+  //       console.log(campData);
 
-        setSearchedCampgrounds(campData);
-        setSearchInput('');
-      })
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //       setSearchedCampgrounds(campData);
+  //       setSearchInput('');
+  //     })
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+  const handleFormSubmit = async(event) => {
+    event.preventDefault()
+    getCampgrounds({
+      variables: {
+        searchString: searchInput
+      },
+      onCompleted: (data) => {
+        console.log(data)
+        setSearchedCampgrounds(data.getCamps)
+      }
+    })
+
+  }
 
   // create function to handle saving a campground to our database
   const handleSaveCampgrounds = async (campId) => {
@@ -180,3 +198,21 @@ const SearchCampgrounds = () => {
 };
 
 export default SearchCampgrounds;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
