@@ -11,7 +11,6 @@ import {
 import Auth from '../utils/auth';
 import { saveCampgrounds, getCamps } from '../utils/API';
 import { saveCampIds, getSavedCampIds } from '../utils/localStorage';
-
 function Robbert() {
   return (
     <div>
@@ -20,8 +19,6 @@ function Robbert() {
     </div>
   );
 }
-
-
 
 const SearchCampgrounds = () => {
   // create state for holding returned google api data
@@ -64,7 +61,7 @@ const SearchCampgrounds = () => {
          /* for(let i in data) { 
             items.push([i,data[i]]); 
          };  */
-        
+
        console.log("items array: ", items);
         const campData = items.map((camp) => ({
           campId: camp.id,
@@ -77,11 +74,10 @@ const SearchCampgrounds = () => {
         }));
 
         console.log(campData);
-  
+
         setSearchedCampgrounds(campData);
         setSearchInput('');
       })
-     
     } catch (err) {
       console.error(err);
     }
@@ -155,7 +151,7 @@ const SearchCampgrounds = () => {
                     <Card.Img src={camp.images} alt={`The image for ${camp.name}`} variant='top' />
                   ) : null}
                   <Card.Body>
-                    <Card.Title>{camp.name}</Card.Title>
+                  <Card.Title>{camp.name}</Card.Title>
                     <p>URL: {camp.URL}</p>
                     <Card.Text>{camp.description}</Card.Text>
                     <Card.Text> <a href={camp.reservationURL}>Reservation</a></Card.Text>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignupForm";
+import logo from "../images/robbert.png"
 
 import Auth from "../utils/auth";
 
@@ -19,18 +20,20 @@ const AppNavbar = () => {
 
       <Navbar bg="blue" variant="blue" expand="lg">
         <Container fluid>
-
-        {/* <Navbar.Brand as={Link} to="/" style={{ fontSize: "40px", fontFamily: "'Roboto', sans-serif" }}>
-  Where's Robbert?
-</Navbar.Brand> */}
-
-<Navbar.Brand as={Link} to="/" style={{ fontSize: "40px", fontFamily: "'Roboto', sans-serif", fontWeight: "bold" }}>
-  Where's Robbert?
-</Navbar.Brand>
-
-
-
-
+          <Navbar.Brand
+            as={Link}
+            to="/"
+            style={{ fontSize: "60px", fontFamily: "'BlinkMacSystemFont', ariel" }}
+          >
+            <img
+              alt=""
+              src={logo}
+              width="250"
+              height="250"
+              className="d-inline-block align-top"
+            />
+            Where's Robbert?
+          </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar" className="d-flex flex-row-reverse">
