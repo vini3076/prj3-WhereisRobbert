@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/client';
-import { useLazyQuery } from '@apollo/client';
-import { QUERY_CAMPS } from '../utils/queries';
+import { useLazyQuery, useQuery, useMutation } from '@apollo/client';
+import { QUERY_CAMPS, QUERY_ME } from '../utils/queries';
+import { ADD_CAMPGROUND } from '../utils/mutation';
 import {
   Container,
   Col,
@@ -32,8 +32,16 @@ const SearchCampgrounds = () => {
   // create state to hold saved bookId values
   const [savedCampIds, setSavedCampIds] = useState(getSavedCampIds());
   const [getCampgrounds, { loading, data }] = useLazyQuery(QUERY_CAMPS); // Use useLazyQuery
-
-
+  const [userId, setUserId] = useState('')
+  const {userLoading, error, userData} = useQuery(QUERY_ME, {
+    onCompleted: (data) => {
+      setUserId(data.me._id)
+    }
+  })
+  const [addCampground, {addCampgroundError}] = useMutation(ADD_CAMPGROUND)
+  useEffect(() => {
+    console.log(userId)
+  }, [userId])
   // set up useEffect hook to save `savedCampIds` list to localStorage on component unmount
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
@@ -104,29 +112,15 @@ const SearchCampgrounds = () => {
   }
 
   // create function to handle saving a campground to our database
-  const handleSaveCampgrounds = async (campId) => {
-    // find the campground in `searchedcampground` state by the matching id
-    const campToSave = searchedCampgrounds.find((camp) => camp.campId === campId);
-
-    // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-    try {
-      const response = await saveCampgrounds(campToSave, token);
-
-      if (!response.ok) {
-        throw new Error('something went wrong!');
+  const handleSaveCampgrounds = async (campData) => {
+    console.log(campData)
+    addCampground({
+      variables:{
+        campgroundData:campData
       }
+      //campgroundData:campData
+    })
 
-      // if camp successfully saves to user's account, save camp id to state
-      setSavedCampIds([...savedCampIds, campToSave.campId]);
-    } catch (err) {
-      console.error(err);
-    }
   };
 
   return (
@@ -164,6 +158,15 @@ const SearchCampgrounds = () => {
         </h2>
         <Row>
           {searchedCampgrounds.map((camp) => {
+            const campData = {
+              URL: camp.URL,
+              name: camp.name,
+              description: camp.description,
+              reservationURL: camp.reservationURL,
+              fees: camp.fees,
+              images: camp.images,
+              userId: userId
+            }
             return (
               <Col md="4" key={camp.campId}>
                 <Card border='dark'>
@@ -180,7 +183,7 @@ const SearchCampgrounds = () => {
                       <Button
                         disabled={savedCampIds?.some((savedCampId) => savedCampId === camp.campId)}
                         className='btn-block btn-info'
-                        onClick={() => handleSaveCampgrounds(camp.campId)}>
+                        onClick={() => handleSaveCampgrounds(campData)}>
                         {savedCampIds?.some((savedCampId) => savedCampId === camp.campId)
                           ? 'This campground has already been saved!'
                           : 'Save this Campground!'}

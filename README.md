@@ -76,7 +76,7 @@ Node.js
 Express.js
 Used Handlebars.js
 MySQL
-Swquelize ORM
+Sequelize ORM
 GET & POST routes
 Created a RESTful API
 Deployed in Heroku

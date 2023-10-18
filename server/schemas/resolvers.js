@@ -18,10 +18,7 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     getCamps: async(parent, {searchString}) => {
-      console.log(process.env.API_KEY)
-      console.log(searchString)
       const response = await fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${searchString}&api_key=${process.env.API_KEY}`)
-      console.log(response)
 
 
         if (!response.ok) {
@@ -29,15 +26,11 @@ const resolvers = {
         }
        else{
           let data = await response.json()
-          console.log("Data object: ", data)
-          console.log(data.data);
         
           const items = (data.data)
          /* for(let i in data) { 
             items.push([i,data[i]]); 
          };  */
-
-          console.log("items array: ", items);
           
           const campData = items.map((camp) => ({
             campId: camp.id,
@@ -84,6 +77,7 @@ const resolvers = {
     },
     // prj3: changed saveBook = saveLocation; bookData = locationData; auth = city
     addCampGround: async (parent, { campgroundData }, context) => {
+      console.log('Michael said add campground')
       if (context.user) {
         console.log(campgroundData)
         const newCampground = await Campground.create({
