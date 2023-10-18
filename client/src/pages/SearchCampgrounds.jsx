@@ -90,6 +90,7 @@ const SearchCampgrounds = () => {
   //   }
   // };
   const handleFormSubmit = async(event) => {
+    console.log("submit")
     event.preventDefault()
     getCampgrounds({
       variables: {
