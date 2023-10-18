@@ -27,15 +27,11 @@ const resolvers = {
         }
        else{
           let data = await response.json()
-          console.log("Data object: ", data)
-          console.log(data.data);
         
           const items = (data.data)
          /* for(let i in data) { 
             items.push([i,data[i]]); 
          };  */
-
-          console.log("items array: ", items);
           
           const campData = items.map((camp) => ({
             campId: camp.id,
@@ -82,6 +78,7 @@ const resolvers = {
     },
     // prj3: changed saveBook = saveLocation; bookData = locationData; auth = city
     addCampGround: async (parent, { campgroundData }, context) => {
+      console.log('Michael said add campground')
       if (context.user) {
         console.log(campgroundData)
         const newCampground = await Campground.create({
