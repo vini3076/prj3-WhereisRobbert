@@ -18,8 +18,10 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     getCamps: async(parent, {searchString}) => {
-      console.log('here')
+      console.log(process.env.API_KEY)
+      console.log(searchString)
       const response = await fetch(`https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${searchString}&api_key=${process.env.API_KEY}`)
+      console.log(response)
 
 
         if (!response.ok) {
