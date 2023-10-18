@@ -4,7 +4,6 @@ import path from 'path';
 import { authMiddleware } from './utils/auth.js'; 
 import { typeDefs, resolvers } from './schemas/index.js';
 import db from './config/connection.js';
-import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
