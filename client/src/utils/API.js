@@ -1,5 +1,5 @@
-//import dotenv from 'dotenv';
-//dotenv.config();
+// import dotenv from 'dotenv';
+// dotenv.config();
 const apiKey = `9CY8ugde1JciGsW08MOcPyV22TgEljJNPV0hBYCl`
 //const apiURL = `https://developer.nps.gov/api/v1/campgrounds?stateCode=CA&q=${query}&api_key=${apiKey}`
 
@@ -79,3 +79,24 @@ export const getMe = (token) => {
   };
 
  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

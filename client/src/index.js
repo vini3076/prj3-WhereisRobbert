@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import App from "./App";
+import App from "./App.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
-import SearchCampgrounds from "./pages/SearchCampgrounds";
-import SavedCampgrounds from "./pages/SavedCampgrounds";
+import SearchCampgrounds from "./pages/SearchCampgrounds.jsx";
+import SavedCampgrounds from "./pages/SavedCampgrounds.jsx";
 
 //import reportWebVitals from './reportWebVitals';
 
