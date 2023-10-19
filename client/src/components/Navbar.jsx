@@ -42,7 +42,7 @@ const AppNavbar = () => {
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbar" />
-          <Navbar.Collapse id="navbar" className="d-flex flex-row-reverse">
+          <Navbar.Collapse id="navbar" className="d-flex flex-row-reverse"style={{alignSelf: "baseline", fontSize: "1em", fontWeight: "bold"}}>
             <Nav className="ml-auto d-flex">
               <Nav.Link as={Link} to="/">
                 <strong>Search For Campgrounds</strong>

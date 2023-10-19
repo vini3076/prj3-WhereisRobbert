@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "18": "^0.0.0",
     "antd": "^5.9.4",
     "apollo-server-express": "^3.12.1",
     "bcrypt": "^5.1.1",
@@ -9,7 +10,6 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.1.0",
     "mongoose": "^7.6.0"
-    
   },
   "devDependencies": {
     "@types/react": "^18.2.25",
