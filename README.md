@@ -76,17 +76,14 @@ National Park Service's API
 
 
 # Acceptance Criteria
-GIVEN that I have an internet signal in my current nomadic location,
-WHEN I visit www.whereisrobbert.com, THEN I find a search input box and options to sign up or log in;
-WHEN I click on Sign up, THEN I am invited to enter my username, email, and password;
-WHEN I click on Login, THEN I am invited to enter my username and password;
-WHEN I enter a park name into the search bar, THEN the app responds by providing a list of cards representing campgrounds in or near the park searched;
-WHEN I look at the cards, 
-THEN I see that the cards display the name of the campground, an image, a URL, a description of the campground, a reservations page link, and the first listed fee for that campground.
-WHEN I am also logged into the app, THEN I will also find a button for Save Campground on each campground card.
+GIVEN that I have an internet signal in my current nomadic location, <p>WHEN I visit www.whereisrobbert.com, <br>THEN I find a search input box and options to sign up or log in;<br>
+<p>WHEN I click on Sign up, <br>THEN I am invited to enter my username, email, and password;
+<p>WHEN I click on Login, <br>THEN I am invited to enter my username and password;<br>
+<p>WHEN I enter a park name into the search bar, <br>THEN the app responds by providing a list of cards representing campgrounds in or near the park searched;<br>
+<p>WHEN I look at the cards, <br>
+THEN I see that the cards display the name of the campground, an image, a URL, a description of the campground, a reservations page link, and the first listed fee for that campground.<br>
+<p>WHEN I am also logged into the app, <br>THEN I will also find a button for Save Campground on each campground card.
 
-
-( TODO: this is in progress as we get things working
 
 # Project Reference
 [project page - Heroku] <a href="https://travelgeekalicia-bd545f74fdfc.herokuapp.com/">Where's Robbert?</a>
