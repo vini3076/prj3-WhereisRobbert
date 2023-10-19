@@ -179,7 +179,7 @@ const SearchCampgrounds = () => {
                     <p>URL: {camp.URL}</p>
                     <Card.Text>{camp.description}</Card.Text>
                     <Card.Text> <a href={camp.reservationURL}>Reservation</a></Card.Text>
-                    <Card.Text> <b>Fees: </b> {camp.fees}</Card.Text>
+                    <Card.Text> <b>Fees: </b> ${camp.fees}</Card.Text>
                     {Auth.loggedIn() && (
                       <Button
                         disabled={savedCampIds?.some((savedCampId) => savedCampId === camp.campId)}
