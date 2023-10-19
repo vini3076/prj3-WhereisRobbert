@@ -14,14 +14,7 @@ import {
 import Auth from '../utils/auth';
 import { saveCampgrounds, getCamps } from '../utils/API';
 import { saveCampIds, getSavedCampIds } from '../utils/localStorage';
-function Robbert() {
-  return (
-    <div>
-      <h1>robbert</h1>
-      <img src="/client\src\images\robbert.png" alt="robbert" />
-    </div>
-  );
-}
+
 
 const SearchCampgrounds = () => {
   // create state for holding returned google api data
@@ -160,6 +153,7 @@ const SearchCampgrounds = () => {
         <Row>
           {searchedCampgrounds.map((camp) => {
             const campData = {
+              campId: camp.Id,
               URL: camp.URL,
               name: camp.name,
               description: camp.description,
@@ -176,7 +170,7 @@ const SearchCampgrounds = () => {
                   ) : null}
                   <Card.Body>
                   <Card.Title>{camp.name}</Card.Title>
-                    <p>URL: {camp.URL}</p>
+                    <p>URL: <a href={camp.URL}>{camp.URL}</a></p>
                     <Card.Text>{camp.description}</Card.Text>
                     <Card.Text> <a href={camp.reservationURL}>Reservation</a></Card.Text>
                     <Card.Text> <b>Fees: </b> ${camp.fees}</Card.Text>
