@@ -27,17 +27,20 @@ To run this project locally, follow these steps:
 # Screen Shot Images
 
 <figure>
-  <img src="images\Landing Page.jpg" alt="Homepage" style="width:100%"> <figcaption><i>Homepage</i></figcaption>
+  <img src="/client/src/images/Landing Page.png" alt="Homepage" style="width:100%"> <figcaption><i>Homepage</i></figcaption>
   </figure>
 
 <figure>
-  <img src="images\Login.jpg" alt="Pop-Up Login and SignUp" style="width:100%"><figcaption><i>Pop-Up Login and SignUp</i></figcaption>
+  <img src="/client/src/images/Login.png" alt="Pop-Up Login and SignUp" style="width:100%"><figcaption><i>Pop-Up Login and SignUp</i></figcaption>
 </figure> 
 
 <figure>
-  <img src="images\Search results.png" alt="Search Results" style="width:100%"><figcaption><i>Search Results</i></figcaption>
+  <img src="/client/src/images/Search results.png" alt="Search Results" style="width:100%"><figcaption><i>Search Results</i></figcaption>
 </figure>
 
+<figure>
+  <img src="/client/src/images/Save page.png" alt="Saved Page" style="width:100%"> <figcaption><i>Saved Page</i></figcaption>
+  </figure>
 
 ## License
 This project is licensed under the MIT License.
@@ -86,7 +89,7 @@ THEN I see that the cards display the name of the campground, an image, a URL, a
 
 
 # Project Reference
-[project page - Heroku] <a href="https://travelgeekalicia-bd545f74fdfc.herokuapp.com/">Where's Robbert?</a>
+[project page - Heroku] <a href="https://where-is-robbert-6b2227092c3e.herokuapp.com/">Where's Robbert?</a>
 [GitHub page] <a href="https://github.com/vini3076/prj3-WhereisRobbert">Github Page</a>
 
 # Sources
