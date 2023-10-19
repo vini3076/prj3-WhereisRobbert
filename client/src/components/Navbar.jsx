@@ -25,20 +25,30 @@ const AppNavbar = () => {
             to="/"
             style={{ fontSize: "60px", fontFamily: "'BlinkMacSystemFont', ariel", alignItems: "center",  display: "flex",
             justifyContent: "flex-end",}}
-
-            className="ml-auto"
-          >
-            <img
+        
+            className="center"
+           >  
+             <img
               alt=""
-              src={logo}
-              width="250"
-              height="250"
-              margin-right="15px="
-              margin-left="10px"
-              margin-top="5px"
-              className="d-inline-block align-top"
+              src={logo} classname="center" 
+              justifyContent="center"
+              width="550"
+              height="550"
+              padding-right="10px"
+              padding-left="27%"
+             
+              // margin-right="10px="
+              // margin-left="35px"
+              // margin-top="5px"
+              // margin= "0 auto" // Center horizontally
+              // marginLeft= "auto" // Center horizontally
+              // marginRight= "auto" // Center horizontally
+              // display= "block"// Remove any default inline-block behavior
+              // marginTop= "5px"
+              // className="d-inline-block align-top-center"
+              
             />
-            Where's Robbert?
+             {/* Where's Robbert? */}
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbar" />
