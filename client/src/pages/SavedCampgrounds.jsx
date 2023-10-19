@@ -69,7 +69,7 @@ const SavedCampgrounds = () => {
                           </Card.Text>
                           <Card.Text>
                             {" "}
-                            <b>Fees: </b> {camp.fees}
+                            <b>Fees: </b> ${camp.fees}
                           </Card.Text>
 
                           <Button

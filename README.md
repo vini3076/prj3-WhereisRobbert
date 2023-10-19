@@ -61,20 +61,20 @@ We set up the files in the root directory with the following variables:
 - SESSION_SECRET=your-session-secret 
 
 ## Test
-Go to Where's Robbert? page (Heroku deployment page)
-Create a User Accout
-Go to the search box and input a location
-Click on the submit search button to see the search results
-Click on the reservation button to go to the outsource page
+- Go to Where's Robbert? page (Heroku deployment page)
+- Create a User Account
+- Go to the search box and input a location
+- Click on the submit search button to see the search results
+- Click on the reservation button to go to the outsource page
 
 ## Technology Used
-Node.js
-Express.js
-React
-GraphQL
-MongoDB
-ODM
-National Park Service's API
+[<a href="https://nodejs.org/en">Node.js</a>]
+[<a href="https://expressjs.com/">Express.js</a>]
+[<a href="https://react.dev/">React</a>]
+[<a href="https://graphql.org/">GraphQL</a>]
+[<a href="https://www.mongodb.com/">MongoDB</a>]
+[<a href="https://www.mongodb.com/developer/products/mongodb/mongodb-orms-odms-libraries/">ODM</a>]
+[<a href="https://www.nps.gov/subjects/developer/api-documentation.htm">National Park Service's API</a>]
 
 
 
