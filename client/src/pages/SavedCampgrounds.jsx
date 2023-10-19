@@ -15,11 +15,11 @@ const SavedCampgrounds = () => {
   });
 
   const [removeCampground, { removeCampgroundError }] =
-    useMutation(REMOVE_CAMPGROUND);
-
-  useEffect(() => {
-    console.log(currentUserData);
-  }, [currentUserData]);
+    useMutation(REMOVE_CAMPGROUND, {
+      onCompleted: () => {
+        document.location.reload()
+      }
+    });
   const handleRemoveCampgrounds = async (id) => {
     console.log(id);
     removeCampground({
