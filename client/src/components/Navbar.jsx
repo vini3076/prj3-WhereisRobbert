@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
 import LoginForm from "./LoginForm";
 import SignUpForm from "./SignupForm";
-import logo from "../images/robbertlogo.png"
+import logo from "../images/robbertlogo.png";
 
 import Auth from "../utils/auth";
 
@@ -12,20 +12,18 @@ const AppNavbar = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
-      {/* <h1> Hello there</h1>
-      <div>
-        <Link to="/login"> Login</Link>
-        <Link to="/signup"> Signup</Link>
-      </div> */}
-
       <Navbar bg="blue" variant="blue" expand="lg">
         <Container fluid>
           <Navbar.Brand
             as={Link}
             to="/"
-            style={{ fontSize: "60px", fontFamily: "'BlinkMacSystemFont', ariel", alignItems: "center",  display: "flex",
-            justifyContent: "flex-end",}}
-
+            style={{
+              fontSize: "60px",
+              fontFamily: "'BlinkMacSystemFont', ariel",
+              alignItems: "center",
+              display: "flex",
+              justifyContent: "flex-end",
+            }}
             className="ml-auto"
           >
             <img
@@ -38,16 +36,23 @@ const AppNavbar = () => {
               margin-top="5px"
               className="d-inline-block align-top"
             />
-            Where's Robbert?
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbar" />
-          <Navbar.Collapse id="navbar" className="d-flex flex-row-reverse"style={{alignSelf: "baseline", fontSize: "1em", fontWeight: "bold"}}>
+          <Navbar.Collapse
+            id="navbar"
+            className="d-flex flex-row-reverse"
+            style={{
+              alignSelf: "baseline",
+              fontSize: "1em",
+              fontWeight: "bold",
+            }}
+          >
             <Nav className="ml-auto d-flex">
               <Nav.Link as={Link} to="/">
                 <strong>Search For Campgrounds</strong>
               </Nav.Link>
-              {/*if user is logged in show saved books and logout*/}
+
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to="/saved">
@@ -70,7 +75,6 @@ const AppNavbar = () => {
         onHide={() => setShowModal(false)}
         aria-labelledby="signup-modal"
       >
-        {/* tab container to do either signup or login component */}
         <Tab.Container defaultActiveKey="login">
           <Modal.Header closeButton>
             <Modal.Title id="signup-modal">
