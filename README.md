@@ -76,19 +76,17 @@ National Park Service's API
 
 
 # Acceptance Criteria
-Use React for the front end.
-Use GraphQL with a Node.js and Express.js server.
-Use MongoDB and the Mongoose ODM for the database.
-Use queries and mutations for retrieving, adding, updating, and deleting data.
-Be deployed using Heroku (with data).
-Have a polished UI.
-Be responsive.
-Be interactive (i.e., accept and respond to user input).
-Include authentication (JWT).
-Protect sensitive API key information on the server.
-Have a clean repository that meets quality coding standards (file structure, naming conventions, best practices for class and id naming conventions, indentation, high-quality comments, and so on).
-Have a high-quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
-Finally, you must add your project to the portfolio that you created in Module 2.  -->
+GIVEN that I have an internet signal in my current nomadic location,
+WHEN I visit www.whereisrobbert.com, THEN I find a search input box and options to sign up or log in;
+WHEN I click on Sign up, THEN I am invited to enter my username, email, and password;
+WHEN I click on Login, THEN I am invited to enter my username and password;
+WHEN I enter a park name into the search bar, THEN the app responds by providing a list of cards representing campgrounds in or near the park searched;
+WHEN I look at the cards, 
+THEN I see that the cards display the name of the campground, an image, a URL, a description of the campground, a reservations page link, and the first listed fee for that campground.
+WHEN I am also logged into the app, THEN I will also find a button for Save Campground on each campground card.
+
+
+( TODO: this is in progress as we get things working
 
 # Project Reference
 [project page - Heroku] <a href="https://travelgeekalicia-bd545f74fdfc.herokuapp.com/">Where's Robbert?</a>
