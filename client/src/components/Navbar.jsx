@@ -7,13 +7,14 @@ import SignUpForm from "./SignupForm";
 import logo from "../images/robbertlogo.png";
 
 import Auth from "../utils/auth";
+import Column from "antd/es/table/Column";
 
 const AppNavbar = () => {
   const [showModal, setShowModal] = useState(false);
   return (
     <>
       <Navbar bg="blue" variant="blue" expand="lg">
-        <Container fluid>
+        <Container >
           <Navbar.Brand
             as={Link}
             to="/"
@@ -26,10 +27,12 @@ const AppNavbar = () => {
               alt=""
               src={logo} classname="center" 
               justifyContent="center"
-              width="550"
-              height="550"
-              padding-right="10px"
-              padding-left="27%"
+              width="400"
+              height="400"
+              flex-direction="Column reversse"
+              
+              // padding-right="10px"
+              // padding-left="27%"
              
               // margin-right="10px="
               // margin-left="35px"
@@ -42,8 +45,7 @@ const AppNavbar = () => {
               // className="d-inline-block align-top-center"
               
             />
-             {/* Where's Robbert? */}
-
+          
           </Navbar.Brand>
 
           <Navbar.Toggle aria-controls="navbar" />
