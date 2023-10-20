@@ -14,23 +14,26 @@ const AppNavbar = () => {
   return (
     <>
       <Navbar bg="blue" variant="blue" expand="lg">
-        <Container >
+              <Container
+               className= "flex-column-reverse"
+               > 
+               
           <Navbar.Brand
             as={Link}
             to="/"
             style={{ fontSize: "60px", fontFamily: "'BlinkMacSystemFont', ariel", alignItems: "center",  display: "flex",
             justifyContent: "flex-end",}}
-        
+           
             className="center"
            >  
              <img
               alt=""
-              src={logo} classname="center" 
+              src={logo} 
               justifyContent="center"
-              width="400"
-              height="400"
-              flex-direction="Column reversse"
-              
+              width="375"
+              height="375"
+              // flex-direction="Column reversse"
+             
               // padding-right="10px"
               // padding-left="27%"
              
@@ -51,9 +54,9 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse
             id="navbar"
-            className="d-flex flex-row-reverse"
+            // className="flex-row-reverse"
             style={{
-              alignSelf: "baseline",
+              alignSelf: "flex-end",
               fontSize: "1em",
               fontWeight: "bold",
             }}
