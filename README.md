@@ -66,6 +66,7 @@ We set up the files in the root directory with the following variables:
 - Go to the search box and input a location
 - Click on the submit search button to see the search results
 - Click on the reservation button to go to the outsource page
+- Click on Save this Campground to add to See Your Campgrounds page
 
 ## Technology Used
 [<a href="https://nodejs.org/en">Node.js</a>]
